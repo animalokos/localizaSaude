@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+    <style>
+        @media(max-width: 768px) {
+            .logo {
+                max-width: 130% !important;
+                margin-left: -30px;
+                margin-top: 5px;
+            }
+        }
+        
+        @media(min-width: 769px) {
+            .logo {
+                max-width: 65% !important;
+                margin-top: -10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav style="background-color: #46c14f;">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">
+                    <img class="logo responsive-img" src="img/logo-localizasaude-br.png" />
+                </a>
+                <ul id="nav-mobile" class="left">
+                    <li><a href="index.html">Voltar</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="row">
+        <div class="col s0 m2"><p> </p></div>
+        <iframe class="col s12 m8" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.013540814212!2d-46.65457598502277!3d-23.532015384697495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5814c1e5f8b7%3A0x6cf921f7e9f20a76!2sR.+Vitorino+Carmilo%2C+599+-+Barra+Funda%2C+S%C3%A3o+Paulo+-+SP!5e0!3m2!1spt-BR!2sbr!4v1491744046438" height="350px" frameborder="0" style="border:0" allowfullscreen></iframe>
+        <div class="col s0 m2"><p> </p></div>
+    </div>
+    <section class="container">
+        <div class="align center">
+            <article>
+                <h5 class="center">A unidade mais próxima de sua localização é:</h5>
+                <p class="center">UBS DR HUMBERTO PASCALE SANTA CECILIA (resultadodabuscaunidade)</p>
+                <div>
+                    <img style="max-width: 60%; border: 2px solid #fc0023; border-radius: 20px;" class="responsive-img center" src="img/ubs.jpg" alt="" title="">
+                </div>
+                <div class="align center">
+                    <p>Vacinação (Serviços que essa ubs presta)- Lista</p>
+                    <p>R. VITORINO CARMILO, 599 - CAMPOS ELÍSEOS - CEP: 01153000. (endereço)</p>
+                    <p>Telefone(s): 3826-0096, 3826-7970. (Telefone)</p>
+                    <p>Funcionamento: Segunda a Sexta: 7h às 19h.(Horário de Atendimento)</p>
+                    <p class="center">Não se esqueça de levar RG e cartão do SUS.</p>
+                </div>
+            </article>
+            </div>
+    </section>
+    <br>
+
+    <div id="mapa" class="modal">
+        <div class="modal-content">
+            <h4>Modal Header</h4>
+            <p>AQUI VAI O MAPA!</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+    <footer>
+        <div class="rodape center">
+            <p>Sistema de Localização de Estabelecimentos de Saúde da Rede SUS do Município de São Paulo</p>
+        </div>
+    </footer>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function() {
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal').modal();
+    });
+
+</script>
+
+</html>

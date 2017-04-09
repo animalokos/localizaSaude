@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+      <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 350px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+        @media(max-width: 768px) {
+            .logo {
+                max-width: 130% !important;
+                margin-left: -30px;
+                margin-top: 5px;
+            }
+        }
+        
+        @media(min-width: 769px) {
+            .logo {
+                max-width: 65% !important;
+                margin-top: -10px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+      <header>
+        <nav style="background-color: #46c14f;">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">
+                    <img class="logo responsive-img" src="img/logo-localizasaude-br.png" />
+                </a>
+                <ul id="nav-mobile" class="left">
+                    <li><a href="index.html">Voltar</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="row">
+        <div class="col s1 m2"><p> </p></div>
+        <div class="col s10 m8" id="map"></div>
+        <div class="col s1 m2"><p> </p></div>
+    </div>
+      
+      <section class="container">
+            <div class="align center">
+                <article>
+                    <h5 class="center">A unidade 24 HORAS mais próxima de sua localização é:</h5>
+                    <p class="center"></p>
+                    <div>
+                        <img style="max-width: 60%; border: 2px solid #fc0023; border-radius: 20px;" class="responsive-img center" src="img/ubs.jpg" alt="" title="">
+                    </div>
+                    <div class="align-left">
+                        <p>R. PRATES, 1101 - BOM RETIRO - CEP: 01009-000.<br/>
+                        Telefones: 3229-8192, 3229-8563.<br/>
+                        Funcionamento: 24H.<br/>
+                        <p class="center">Não se esqueça de levar RG e cartão do SUS.</p>
+                    </div>
+                </article>
+            </div>
+    </section>
+      <footer class="row">
+        <div class="rodape center col s12">
+            <p>Sistema de Localização de Estabelecimentos de Saúde da Rede SUS do Município de São Paulo</p>
+        </div>
+    </footer>
+    <script>
+      // Note: This example requires that you consent to location sharing when
+      // prompted by your browser. If you see the error "The Geolocation service
+      // failed.", it means you probably did not give permission for the browser to
+      // locate you.
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 12
+        });
+        var infoWindow = new google.maps.InfoWindow({map: map});
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            $.get( "http://localhost:8099/api", function( data ) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    var pos = {
+                        lat: data.LATITUDEGOOGLE,
+                        lng: data.LONGITUDEGOOGLE
+                    };
+
+                    infoWindow.setPosition(pos);
+                    map.setCenter(pos);
+                    infoWindow.setContent('<div id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<h4 id="firstHeading" class="firstHeading">'+data.Nome+'</h4>'+
+                '<div id="bodyContent">'+
+                    '<p>'+data.TipoServiço+'<br/>' +
+                        data.Logradouro+', '+data.N+'<br/>'+
+                        data.Bairro+' - '+data.CEP+'<br/>'+
+                        'Telefones: '+data.Fone1+' / '+data.Fone2+'<br/>'+
+                        data.endereco+
+                    '</p>'+
+                '</div>'+
+            '</div>');
+                   
+                }, function() {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            });
+        }
+      }
+
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+      }
+    </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6qtrt5MLxAGJZl9plrjqEf4HCxLZw6D8&callback=initMap">
+    </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script> 
+  </body>
+</html>

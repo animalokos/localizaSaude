@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
+    <style>
+        @media(max-width: 768px) {
+            .logo {
+                max-width: 130% !important;
+                margin-left: -30px;
+                margin-top: 5px;
+            }
+        }
+        
+        @media(min-width: 769px) {
+            .logo {
+                max-width: 65% !important;
+                margin-top: -10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav style="background-color: #46c14f;">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">
+                    <img class="logo responsive-img" src="img/logo-localizasaude-br.png" />
+                </a>
+                <ul id="nav-mobile" class="left">
+                    <li><a href="especialidades.html">Voltar</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <section class="container">
+        <div class="align center">
+            <article>
+                <p>puxar a opção escolhida na especialidades.html</p>
+                <p class="justify">
+                    Para realizar atendimento desta especialidade é necessário ter encaminhamento prévio da rede SUS em uma unidade básica.
+                </p>
+                <button class="btn waves-effect waves-light center" type="submit" name="action" style=" background-color: #46c14f;">BUSCAR UBS + PRÓXIMA</button>
+                <p>Caso você já tenha um encaminhamento, consulte aqui o local: </p>
+                <button class="btn waves-effect waves-light center" type="submit" name="action" style=" background-color: #46c14f;">CONSULTE</button>
+            </article>
+        </div>
+    </section>
+    <br>
+    <footer>
+        <div class="rodape center">
+            <p>Sistema de Localização de Estabelecimentos de Saúde da Rede SUS do Município de São Paulo</p>
+        </div>
+    </footer>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+
+</html>
